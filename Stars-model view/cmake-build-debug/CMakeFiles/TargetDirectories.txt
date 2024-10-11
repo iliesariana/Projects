@@ -1,0 +1,5 @@
+C:/Users/vostro/Desktop/OOP_lab/Stars/cmake-build-debug/CMakeFiles/Stars.dir
+C:/Users/vostro/Desktop/OOP_lab/Stars/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/vostro/Desktop/OOP_lab/Stars/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/vostro/Desktop/OOP_lab/Stars/cmake-build-debug/CMakeFiles/Stars_autogen_timestamp_deps.dir
+C:/Users/vostro/Desktop/OOP_lab/Stars/cmake-build-debug/CMakeFiles/Stars_autogen.dir
