@@ -1,0 +1,10 @@
+8067775316,Rich Dad Poor Dad,Robert Kiyosaki,False
+6285343746,Minor Feelings: An Asian American Reckoning,Cathy Park Hong,False
+2474464892,How To Win Friends & Influence People,Napoleon Hill,True
+9192991133,The Glass Hotel,Emily St. John Mandel,True
+2179750766,Life Is What You Make It,Peter Buffet,True
+7175038008,The Game,Niel Strauss,True
+7824621148,Sapiens: A Brief History Of Humankind,Yuval Noah Harari,True
+0449334001,So Good They Can'T Ignore You,Cal Newport,True
+1837935102,Uncanny Valley,Anna Wiener,True
+7859013989,A,B,True
