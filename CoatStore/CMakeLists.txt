@@ -1,0 +1,80 @@
+cmake_minimum_required(VERSION 3.17)
+project(untitled14)
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTORCC ON)
+set(CMAKE_AUTOUIC ON)
+set(CMAKE_PREFIX_PATH "C:\\Qt\\6.5.3\\mingw_64\\lib\\cmake\\")
+include_directories(C:/Qt/6.5.3/Src/qtcharts)
+
+find_package(Qt6 COMPONENTS
+        Core
+        Gui
+        Widgets
+        Charts
+        REQUIRED)
+
+add_executable(untitled14 main.cpp
+        Domain.h
+        Utils.cpp
+        Utils.h
+        Domain.cpp
+        Exceptions.cpp
+        Service.h
+        Repo.h
+        Repo.cpp
+        FileRepo.h
+        FileRepo.cpp
+        Service.cpp
+        AdminGui.h
+        AdminGui.cpp
+        UserGui.h
+        UserGui.h
+        UserGui.cpp
+        UI.h
+        UI.cpp
+        GUI.h
+        GUI.cpp
+        HTMLRepo.cpp
+        Action.h
+        Action.cpp
+        TableMode.h
+        TableMode.cpp
+)
+target_link_libraries(untitled14
+        Qt::Core
+        Qt::Gui
+        Qt::Widgets
+        Qt::Charts
+
+)
+
+if (WIN32 AND NOT DEFINED CMAKE_TOOLCHAIN_FILE)
+    set(DEBUG_SUFFIX)
+    if (MSVC AND CMAKE_BUILD_TYPE MATCHES "Debug")
+        set(DEBUG_SUFFIX "d")
+    endif ()
+    set(QT_INSTALL_PATH "${CMAKE_PREFIX_PATH}")
+    if (NOT EXISTS "${QT_INSTALL_PATH}/bin")
+        set(QT_INSTALL_PATH "${QT_INSTALL_PATH}/..")
+        if (NOT EXISTS "${QT_INSTALL_PATH}/bin")
+            set(QT_INSTALL_PATH "${QT_INSTALL_PATH}/..")
+        endif ()
+    endif ()
+    if (EXISTS "${QT_INSTALL_PATH}/plugins/platforms/qwindows${DEBUG_SUFFIX}.dll")
+        add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+                COMMAND ${CMAKE_COMMAND} -E make_directory
+                "$<TARGET_FILE_DIR:${PROJECT_NAME}>/plugins/platforms/")
+        add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+                COMMAND ${CMAKE_COMMAND} -E copy
+                "${QT_INSTALL_PATH}/plugins/platforms/qwindows${DEBUG_SUFFIX}.dll"
+                "$<TARGET_FILE_DIR:${PROJECT_NAME}>/plugins/platforms/")
+    endif ()
+    foreach (QT_LIB Core Gui Widgets)
+        add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+                COMMAND ${CMAKE_COMMAND} -E copy
+                "${QT_INSTALL_PATH}/bin/Qt6${QT_LIB}${DEBUG_SUFFIX}.dll"
+                "$<TARGET_FILE_DIR:${PROJECT_NAME}>")
+    endforeach (QT_LIB)
+endif ()

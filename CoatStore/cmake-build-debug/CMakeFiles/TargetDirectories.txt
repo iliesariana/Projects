@@ -1,0 +1,5 @@
+C:/Users/vostro/Desktop/untitled14/cmake-build-debug/CMakeFiles/untitled14.dir
+C:/Users/vostro/Desktop/untitled14/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/vostro/Desktop/untitled14/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/vostro/Desktop/untitled14/cmake-build-debug/CMakeFiles/untitled14_autogen_timestamp_deps.dir
+C:/Users/vostro/Desktop/untitled14/cmake-build-debug/CMakeFiles/untitled14_autogen.dir
