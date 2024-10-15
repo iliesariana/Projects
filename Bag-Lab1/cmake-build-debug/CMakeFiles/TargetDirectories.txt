@@ -1,0 +1,3 @@
+C:/Users/vostro/Desktop/LAB1_DSA/cmake-build-debug/CMakeFiles/LAB1_DSA.dir
+C:/Users/vostro/Desktop/LAB1_DSA/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/vostro/Desktop/LAB1_DSA/cmake-build-debug/CMakeFiles/rebuild_cache.dir
