@@ -1,45 +1,35 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/Fc9p7bRJ)
-# :video_game: Assignment 10 - Let's play
-## Requirements
-- You will be given one of the problems below to solve
-- Use object oriented programming and layered architecture
-- All modules with the exception of the UI will have specifications and PyUnit test cases
-- The program will be implemented as a human player vs. computer player game
-- The program must protect itself against the user’s invalid input
+# Obstruction Game
 
-**NB!** We do not expect you to implement optimal play for the computer player. However, it should still employ a strategy when making its moves in order to attempt to win the game and provide an entertaining opponent for the human player. Minimally, the computer player should move to win the game whenever possible and should block the human player’s attempts at 1-move victory, whenever possible
-
-**deadline is week 14**
-
-## GUI Bonus (0.2P)
-- In addition to the console-based user interface required, also implement a graphical user interface (GUI) for the program
-- To receive the bonus, both user interfaces (menu-based and graphical) must use the same program layers. You have to be able to start the application with either user interface
-## AI Bonus (0.2P)
-- Implement computer AI using a [minimax algorithm](https://en.wikipedia.org/wiki/Minimax). Computer play should be competitive against the human player
-- In the case where minimax cannot be applied (e.g. Battleship, which is not a [complete information](https://en.wikipedia.org/wiki/Complete_information) game), find a suitable alternative; talk to your lab professor about the bonus possibility in this case
-## Best-of-FP Bonus (0.2P)
-- This bonus will be awarded to the very best implementations. To receive it, you need to implement both the **GUI** and **AI** bonuses, follow all implementation requirements, and have your work be selected by the laboratory professor
-- These implementations will be part of a separate GitHub repository that we aim to make publicly accessible in order to feature some of our students' best work during this semester
+This is a Python implementation of the **Obstruction Game** following a layered architecture. It includes both a **command-line interface (CLI)** and a **graphical user interface (GUI)**. The game logic is organized into distinct layers to maintain a clean separation of concerns.
 
 
-## Problem Statements
-### Connect Four
-The game is described [here](https://en.wikipedia.org/wiki/Connect_Four)
+## Game Rules
 
-### Gomoku
-The game is described [here](https://en.wikipedia.org/wiki/Gomoku)
+**Obstruction** is a two-player game where the objective is to be the last player able to make a move. It is played on a rectangular grid. Players take turns placing their markers (1 for the player, 2 for the AI). Once a marker is placed, the surrounding cells (including diagonally adjacent ones) are blocked and cannot be used for future moves. The game ends when no more moves are available, and the player unable to move loses the game.
 
-### Obstruction
-The game is described [here](http://www.papg.com/show?2XMX)
+### Key Rules:
+1. Players alternate making moves.
+2. When a marker is placed, the adjacent 8 cells are blocked.
+3. The player who can make the last valid move wins.
+4. The AI can either:
+   - Use a mirroring strategy on odd-sized boards.
+   - Play randomly if no specific strategy is available.
 
-### Battleship
-The game is described [here](https://en.wikipedia.org/wiki/Battleship_(game))
+## Architecture
 
-### Planes
-The game is described [here](https://ro.wikipedia.org/wiki/Avioane_(joc))
+The game follows a **layered architecture** for a clean structure:
 
-### Nine men's morris
-The game is described [here](https://en.wikipedia.org/wiki/Nine_men%27s_morris)
+1. **Domain Layer**: Handles the core logic, including the board structure, point validation, and available moves.
+2. **Repository Layer**: Manages board state, storing, and retrieving the current state.
+3. **Controller Layer (Game Logic)**: Coordinates player and AI moves, checks game-over conditions, and manages board updates.
+4. **UI Layer**: Two user interface options:
+   - **CLI**: Command-line interface for playing via the terminal.
+   - **GUI**: Graphical interface using a Python library like Tkinter or Pygame.
 
-### Other games
-You are free to implement a different board game, as long as its complexity is similar to those above. Talk to your laboratory professor to validate your idea before starting work!
+## Features
+
+- Play against a basic AI.
+- Two interfaces: CLI and GUI.
+- AI uses either a mirroring strategy (on odd boards) or random move generation.
+- Save and load game board state.
+-
