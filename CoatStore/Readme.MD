@@ -18,6 +18,3 @@ The Trench Coats Shop Management System is a GUI application designed for managi
 - CMake (for build management)
 - Standard Template Library (STL)
 
-## Project Structure
-
-. ├── src/ │ ├── GUI.cpp # Main GUI class implementation │ ├── GUI.h # Header for GUI class │ ├── TableMode.cpp # Table view model for coats │ ├── TableMode.h # Header for TableMode class │ ├── UserGui.cpp # User interface for user mode │ ├── UserGui.h # Header for UserGui class │ ├── AdminGui.cpp # User interface for admin mode │ ├── AdminGui.h # Header for AdminGui class │ ├── Service.cpp # Business logic and data management │ ├── Service.h # Header for Service class │ ├── Repository.h # Data repository for coat data └── CMakeLists.txt # CMake build configuration
