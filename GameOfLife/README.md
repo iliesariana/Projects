@@ -1,4 +1,4 @@
-#Game of Life
+##Game of Life
 
 This project is an implementation of Conway's Game of Life, a zero-player cellular automaton game in which cells on a grid live, die, or reproduce based on certain rules. This project allows users to place patterns on a board, evolve the board through generations, and save/load board configurations to/from files.
 
