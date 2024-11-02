@@ -1,30 +1,30 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/CVNLGhTl)
-# 💻 Assignment 09 - Layered Architecture II
-## Requirements
-There are some new requirements for the program you've implemented for **A8**. 
+# Entity Management System with Configurable Repositories and Undo/Redo
 
-1. Implement persistent storage for all entities using file-based repositories. For each entity, you will implement a text-file based repository and a binary-file based repository (using [Pickle](https://docs.python.org/3/library/pickle.html)). These will work alongside the existing repository that stores entities in memory. The program must work the same way using in-memory repositories, text-file repositories and binary file repositories. You can use inheritance in order to reuse existing repository source code.
-2. Implement a `settings.properties` file to configure the application. The decision of which repositories are employed, as well as the location of the repository input files will be made in the program’s `settings.properties` file. An example is below:
+This project is a configurable entity management system that handles multiple types of data (e.g., cars, clients, rentals) with flexible storage options and advanced undo/redo capabilities. The system can store data in memory, in text files, or in binary files, with the storage method configurable via a properties file. Built with a layered architecture, the system leverages a repository pattern for modularity and ease of extension.
 
-    a. `settings.properties` for working with repositories that store entities in memory (in this case there are no input files):
-    ```
-    repository = inmemory
-    cars = “”
-    clients = “”
-    rentals = “”
-    ```
-    b. `settings.properties` for working with repositories that store entities to binary files:
-    ```
-    repository = binaryfiles
-    cars = “cars.pickle”
-    clients = “clients.pickle”
-    rentals = “rentals.pickle”
-    ```
-    
-    **NB!** If your solution to **A8** uses layered architecture properly, these are the only places where source code needs to change:
-    - *Repository layer* – for implementing the required code.
-    - *Application start module* – to load the properties file and start the required repositories.
+## Features
 
-3. Implement unlimited undo/redo functionality using the [Command design pattern](https://refactoring.guru/design-patterns/command), which ensures a memory-efficient implementation of undo/redo operations. Each step will undo/redo the previous operation performed by the user. Undo/redo operations must cascade (e.g., deleting a student must also delete their grades; undoing the deletion must restore all deleted objects).
+### 1. Configurable Repository Layer with Multiple Storage Options
+The system provides three types of repositories for flexible data storage:
+   - **In-Memory Repository**: Stores data temporarily in memory for fast access.
+   - **Text File Repository**: Saves data in human-readable text files, allowing for persistent storage in plain text.
+   - **Binary File Repository**: Uses Python's `pickle` library for serialized binary file storage, which provides more efficient, compact storage.
 
-deadline for maximum grade is **week 12**.
+### 2. Easy-to-Use Configuration with `settings.properties`
+   - The system can be configured using a `settings.properties` file, which specifies:
+     - The repository type (in-memory, text file, or binary file)
+     - File paths for each data entity (if applicable)
+   - By editing the properties file, users can seamlessly switch storage types or file locations without modifying the code.
+
+
+
+### 3. Advanced Undo/Redo Functionality
+   - **Unlimited Undo/Redo**: The system allows users to undo or redo all operations performed, ensuring no action is irreversible.
+   - **Memory-Efficient Implementation**: The **Command design pattern** is used to implement undo/redo functionality, making it lightweight and organized.
+   - **Cascading Undo/Redo**: The system ensures that related data operations are handled together, so undoing or redoing an action affects all associated data (e.g., undoing a client deletion also restores their rentals).
+
+## Technical Design
+
+- **Layered Architecture**: The codebase follows a layered architecture that separates repository logic from business logic and the user interface, enhancing maintainability, testability, and code clarity.
+- **Repository Inheritance**: File-based repositories inherit from the base in-memory repository and extend it with file-specific logic, promoting code reuse.
+- **Binary Serialization with Pickle**: Binary file storage is managed with Python’s `pickle` library, enabling efficient serialization and deserialization of data.
